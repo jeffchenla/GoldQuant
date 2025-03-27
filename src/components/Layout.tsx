@@ -6,6 +6,7 @@ import MarketAnalysis from './pages/MarketAnalysis';
 import StrategyAnalysis from './pages/StrategyAnalysis';
 import RiskManagement from './pages/RiskManagement';
 import SystemMaintenance from './pages/SystemMaintenance';
+import TradeManagement from './pages/TradeManagement';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -23,6 +24,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         return <MarketAnalysis />;
       case 'strategy':
         return <StrategyAnalysis />;
+      case 'trade':
+        return <TradeManagement />;
       case 'risk':
         return <RiskManagement />;
       case 'system':
@@ -34,9 +37,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   return (
     <div className="h-screen flex flex-col">
-      {/* 顶部导航栏 - 1/10 高度 */}
-      <header className="h-[10vh] bg-white border-b border-gray-200 flex justify-between items-center px-4">
-        <div className="text-xl font-bold text-gray-800">GoldQuant</div>
+      {/* 顶部导航栏 - 固定高度为屏幕高度的1/10 */}
+      <header className="h-[10vh] min-h-[60px] bg-white border-b border-gray-200 flex justify-between items-center px-4">
+        <div className="text-xl text-gray-800">GOLDQUANT</div>
         <div className="flex items-center space-x-4">
           <div className="flex items-center space-x-2">
             <UserCircleIcon className="h-8 w-8 text-gray-600" />
@@ -80,7 +83,16 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             >
               <div className="flex flex-col items-center">
                 <span>策略</span>
-                <span>分析</span>
+                <span>管理</span>
+              </div>
+            </li>
+            <li 
+              className={`px-4 py-2 text-gray-600 hover:bg-gray-100 cursor-pointer ${activePage === 'trade' ? 'bg-gray-100' : ''}`}
+              onClick={() => setActivePage('trade')}
+            >
+              <div className="flex flex-col items-center">
+                <span>交易</span>
+                <span>管理</span>
               </div>
             </li>
             <li 
