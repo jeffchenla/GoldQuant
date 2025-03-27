@@ -60,31 +60,46 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               className={`px-4 py-2 text-gray-600 hover:bg-gray-100 cursor-pointer ${activePage === 'asset' ? 'bg-gray-100' : ''}`}
               onClick={() => setActivePage('asset')}
             >
-              资产管理
+              <div className="flex flex-col items-center">
+                <span>资产</span>
+                <span>管理</span>
+              </div>
             </li>
             <li 
               className={`px-4 py-2 text-gray-600 hover:bg-gray-100 cursor-pointer ${activePage === 'market' ? 'bg-gray-100' : ''}`}
               onClick={() => setActivePage('market')}
             >
-              市场分析
+              <div className="flex flex-col items-center">
+                <span>市场</span>
+                <span>分析</span>
+              </div>
             </li>
             <li 
               className={`px-4 py-2 text-gray-600 hover:bg-gray-100 cursor-pointer ${activePage === 'strategy' ? 'bg-gray-100' : ''}`}
               onClick={() => setActivePage('strategy')}
             >
-              策略分析
+              <div className="flex flex-col items-center">
+                <span>策略</span>
+                <span>分析</span>
+              </div>
             </li>
             <li 
               className={`px-4 py-2 text-gray-600 hover:bg-gray-100 cursor-pointer ${activePage === 'risk' ? 'bg-gray-100' : ''}`}
               onClick={() => setActivePage('risk')}
             >
-              风险管理
+              <div className="flex flex-col items-center">
+                <span>风险</span>
+                <span>管理</span>
+              </div>
             </li>
             <li 
               className={`px-4 py-2 text-gray-600 hover:bg-gray-100 cursor-pointer ${activePage === 'system' ? 'bg-gray-100' : ''}`}
               onClick={() => setActivePage('system')}
             >
-              系统维护
+              <div className="flex flex-col items-center">
+                <span>系统</span>
+                <span>维护</span>
+              </div>
             </li>
           </ul>
         </nav>
