@@ -5,6 +5,7 @@ import Login from './components/auth/Login';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { NotificationProvider } from './contexts/NotificationContext';
 import { Loading } from './components/Loading';
+import DraggableAvatar from './components/DraggableAvatar';
 
 const AppContent: React.FC = () => {
   const { isAuthenticated, loading, login } = useAuth();
@@ -27,33 +28,36 @@ const AppContent: React.FC = () => {
   }
 
   return (
-    <Routes>
-      <Route
-        path="/"
-        element={
-          isAuthenticated ? (
-            <Layout>
-              <div className="text-gray-600">
-                <h1 className="text-2xl font-semibold mb-4">欢迎使用 GoldQuant</h1>
-                <p>请从左侧菜单选择功能模块</p>
-              </div>
-            </Layout>
-          ) : (
-            <Navigate to="/login" replace />
-          )
-        }
-      />
-      <Route
-        path="/login"
-        element={
-          isAuthenticated ? (
-            <Navigate to="/" replace />
-          ) : (
-            <Login onLogin={login} />
-          )
-        }
-      />
-    </Routes>
+    <>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            isAuthenticated ? (
+              <Layout>
+                <div className="text-gray-600">
+                  <h1 className="text-2xl font-semibold mb-4">欢迎使用 GoldQuant</h1>
+                  <p>请从左侧菜单选择功能模块</p>
+                </div>
+              </Layout>
+            ) : (
+              <Navigate to="/login" replace />
+            )
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            isAuthenticated ? (
+              <Navigate to="/" replace />
+            ) : (
+              <Login onLogin={login} />
+            )
+          }
+        />
+      </Routes>
+      {isAuthenticated && <DraggableAvatar />}
+    </>
   );
 };
 
